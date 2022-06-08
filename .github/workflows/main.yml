@@ -26,7 +26,10 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-      
+          
+      - name: pip install
+        run: pip install requests
+        
       - name: execute py script
         env:
           BASE_64: ${{secrets.BASE_64}}
