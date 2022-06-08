@@ -32,7 +32,7 @@ jobs:
         
       - name: execute py script
         env:
-          BASE_64: ${{secrets.BASE_64}}
-          SPOTIFY_REFRESH_TOKEN: ${{secrets.SPOTIFY_REFRESH_TOKEN}}
-          SPOTIFY_USER_ID: ${{secrets.SPOTIFY_USER_ID}}
+          BASE_64: ${{ secrets.BASE_64 }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+          SPOTIFY_USER_ID: ${{ secrets.SPOTIFY_USER_ID }}
         run: python main.py
