@@ -6,7 +6,7 @@ import requests
 class Refresh:
     def __init__(self):
         self.refresh_token = os.environ.get("SPOTIFY_REFRESH_TOKEN")
-        self.base_64 = os.environ.get("BASE-64")
+        self.base_64 = os.environ.get("BASE_64")
 
     def refresh(self):
         query = "https://accounts.spotify.com/api/token"
