@@ -125,7 +125,7 @@ gestappoKnallmuzik = "1X4u7Uf3lH4sr81dj8T7T1"
 boysbands = "6YhbLW5eVotSmEai2WSe5h"
 rock = "6OixDFDmJLktl7eCHnuQGH"
 metal = "5a6w0edGwVWPmtH106uZ0X"
-soundtracks = "R3p6g4XjgcQPgPl1iBbHX"
+soundtracks = "4R3p6g4XjgcQPgPl1iBbHX"
 
 # mixed playlists
 mix = "78fXmzyr7HiD7mAE00FXTg"
