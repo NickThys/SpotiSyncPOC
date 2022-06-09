@@ -1,20 +1,16 @@
-import json
 import os
-
 import requests
-
 from Refresh import Refresh
 
 
 class SaveSongs:
-    def __init__(self, playlistIdToSync, playlistIdsToAdd):
+    def __init__(self):
         self.user_id = os.environ.get("SPOTIFY_USER_ID")
         self.spotify_token = self.call_refresh()
-        self.playlistToSync = playlistIdToSync
-        self.playlistToAdd = playlistIdsToAdd
-        self.playlistToSyncTracks = self.get_playlist_tracks(playlistIdToSync)
+        self.playlistToSync = ""
+        self.playlistToAdd = []
+        self.playlistToSyncTracks = []
         self.tracksToAdd = []
-        self.find_playlist_to_sync()
 
     def sync_playlist(self, playlistIdToSync, playlistIdsToAdd):
         nrOfSongs = 0
@@ -50,19 +46,24 @@ class SaveSongs:
         print("nr of songs to add: " + str(len(self.tracksToAdd)))
         print("total nr of songs in playlists: " + str(nrOfSongs))
 
+    def get_playlist_name(self, playlistId):
+        query = "https://api.spotify.com/v1/playlists/{}".format(playlistId)
+        response_json = self.get_request(query)
+        return response_json["name"]
+
     def get_playlist_tracks(self, playlistId):
         tracks = []
         query = "https://api.spotify.com/v1/playlists/{}/tracks".format(playlistId)
-        response_json = self.get_next_tracks(query)
-        for i in response_json["tracks"]['items']:
+        response_json = self.get_request(query)
+        for i in response_json['items']:
             tracks.append(i["track"]["uri"])
 
-        if response_json["tracks"]["next"] is not None:
-            response_json = self.get_next_tracks(response_json["tracks"]["next"])
+        if response_json["next"] is not None:
+            response_json = self.get_request(response_json["next"])
             for i in response_json['items']:
                 tracks.append(i["track"]["uri"])
             while response_json["next"] is not None:
-                response_json = self.get_next_tracks(response_json["next"])
+                response_json = self.get_request(response_json["next"])
                 for i in response_json['items']:
                     tracks.append(i["track"]["uri"])
 
@@ -116,5 +117,6 @@ class SaveSongs:
         return refreshCaller.refresh()
 
 
-a = SaveSongs("1q73eSEEJ6q99aua79qXP4?si=2c87b78f4ff04101",
-              ["5PngbJOftkO1hi4RBnBIaM?si=1a6a044adce54c18", "1hw99deRNbyB5cogPPipin?si=c8a982a991674585"])
+a = SaveSongs()
+a.sync_playlist("1q73eSEEJ6q99aua79qXP4",
+                ["5PngbJOftkO1hi4RBnBIaM", "1hw99deRNbyB5cogPPipin"])
