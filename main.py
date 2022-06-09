@@ -17,7 +17,7 @@ class SaveSongs:
         tracksToAdd = []
         playlistToSyncTracks = self.get_playlist_tracks(playlistIdToSync)
         print("------------------------------------")
-        print("Sync playlist: "+self.get_playlist_name(playlistIdToSync))
+        print("Sync playlist: " + self.get_playlist_name(playlistIdToSync))
         print("from playlist:")
 
         for playlistId in playlistIdsToAdd:
@@ -117,6 +117,35 @@ class SaveSongs:
         return refreshCaller.refresh()
 
 
+# base playlists
+country = "2hruTJvK3brxybteWid7Kb"
+dutch = "51SDyMXGsNm78nHAyzius1"
+studio_100 = "57fUeeCcT64L8EcWZn5pJ6"
+gestappoKnallmuzik = "1X4u7Uf3lH4sr81dj8T7T1"
+boysbands = "6YhbLW5eVotSmEai2WSe5h"
+rock = "6OixDFDmJLktl7eCHnuQGH"
+metal = "5a6w0edGwVWPmtH106uZ0X"
+soundtracks = "R3p6g4XjgcQPgPl1iBbHX"
+
+# mixed playlists
+mix = "78fXmzyr7HiD7mAE00FXTg"
+Dutch_Country = "2YnlFTeZbwmujK0hRfLznQ"
+Metal_Rock = "2ww6BZrSBOrgPkb9UzIm3I"
+Dutch_Country_Studio100_GK_BB_Rock = "1oHBWcbOpZZgKq8wWIvceK"
+Dutch_Country_Studio100 = "3ImR64RSbJODpd1VB5DNUv"
+Dutch_Country_Studio100_BB_Rock = "15m96zT4vyVU60JisQT4vF"
+Dutch_Studio100_GK_BB_Rock = "3wNp92Dimj8KHGKuMQ8UQj"
+Dutch_Country_Studio100_Rock = "6kDQH7h02JvwGQrJLs3fd6"
+Dutch_Country_Rock = "24lPtYaKv0SPKFPHC9c8iK"
+Soundtrack_Studio100_GK_BB_Rock = "3L0J1pvc7sCPr77uOCCNlV"
 a = SaveSongs()
-a.sync_playlist("1q73eSEEJ6q99aua79qXP4",
-                ["5PngbJOftkO1hi4RBnBIaM", "1hw99deRNbyB5cogPPipin"])
+a.sync_playlist(mix, [country, dutch, studio_100, gestappoKnallmuzik, boysbands, rock, metal, soundtracks])
+a.sync_playlist(Dutch_Country, [country, dutch])
+a.sync_playlist(Metal_Rock, [rock, metal])
+a.sync_playlist(Dutch_Country_Studio100_GK_BB_Rock, [country, dutch, studio_100, gestappoKnallmuzik, boysbands, rock])
+a.sync_playlist(Dutch_Country_Studio100, [country, dutch, studio_100])
+a.sync_playlist(Dutch_Country_Studio100_BB_Rock, [country, dutch, studio_100, boysbands, rock])
+a.sync_playlist(Dutch_Studio100_GK_BB_Rock, [dutch, studio_100, gestappoKnallmuzik, boysbands, rock])
+a.sync_playlist(Dutch_Country_Studio100_Rock, [country, dutch, studio_100, rock])
+a.sync_playlist(Dutch_Country_Rock, [country, dutch, rock])
+a.sync_playlist(Soundtrack_Studio100_GK_BB_Rock, [studio_100, gestappoKnallmuzik, boysbands, rock, soundtracks])
