@@ -1,5 +1,6 @@
 import os
 import requests
+import logging
 from Refresh import Refresh
 
 
@@ -140,12 +141,22 @@ Dutch_Country_Rock = "24lPtYaKv0SPKFPHC9c8iK"
 Soundtrack_Studio100_GK_BB_Rock = "3L0J1pvc7sCPr77uOCCNlV"
 a = SaveSongs()
 a.sync_playlist(mix, [country, dutch, studio_100, gestappoKnallmuzik, boysbands, rock, metal, soundtracks])
+logging.warning('Mix Synced')
 a.sync_playlist(Dutch_Country, [country, dutch])
+logging.warning('Dutch_Country Synced')
 a.sync_playlist(Metal_Rock, [rock, metal])
+logging.warning('Metal_Rock Synced')
 a.sync_playlist(Dutch_Country_Studio100_GK_BB_Rock, [country, dutch, studio_100, gestappoKnallmuzik, boysbands, rock])
+logging.warning('Dutch_Country_Studio100_GK_BB_Rock Synced')
 a.sync_playlist(Dutch_Country_Studio100, [country, dutch, studio_100])
+logging.warning('Dutch_Country_Studio100 Synced')
 a.sync_playlist(Dutch_Country_Studio100_BB_Rock, [country, dutch, studio_100, boysbands, rock])
+logging.warning('Dutch_Country_Studio100_BB_Rock Synced')
 a.sync_playlist(Dutch_Studio100_GK_BB_Rock, [dutch, studio_100, gestappoKnallmuzik, boysbands, rock])
+logging.warning('Dutch_Studio100_GK_BB_Rock Synced')
 a.sync_playlist(Dutch_Country_Studio100_Rock, [country, dutch, studio_100, rock])
+logging.warning('Dutch_Country_Studio100_Rock Synced')
 a.sync_playlist(Dutch_Country_Rock, [country, dutch, rock])
+logging.warning('Dutch_Country_Rock Synced')
 a.sync_playlist(Soundtrack_Studio100_GK_BB_Rock, [studio_100, gestappoKnallmuzik, boysbands, rock, soundtracks])
+logging.warning('Soundtrack_Studio100_GK_BB_Rock Synced')
